@@ -103,7 +103,7 @@ hasAttributes = not . null . getAllAttributes . parameters
 attributeToVarStrictType :: (String -> String) -> Attribute -> VarStrictType
 attributeToVarStrictType f Attribute{..} =
   ( mkName $ f attributeName
-  , IsStrict
+  , Bang NoSourceUnpackedness SourceStrict
   , AppT (ConT $ mkName "Maybe") (ConT $ mkName attributeType)
   )
 
