@@ -254,7 +254,8 @@ newtype DialNounF i a = DialNounF
       SipF        i ) a
   } deriving (Functor, Generic, Show, Typeable)
 
-instance (f i :<: ( ClientF     i :+:
+instance (Functor (f i)
+         ,f i :<: ( ClientF     i :+:
                     ConferenceF i :+:
                     NumberF     i :+:
                     QueueF      i :+:
@@ -589,7 +590,8 @@ newtype VoiceVerbsF i a = VoiceVerbsF
       EndF      i ) a -- Shared between Voice and Messaging TwiML
   } deriving (Functor, Generic, Show, Typeable)
 
-instance (f i :<: ( SayF      i :+:
+instance (Functor (f i)
+         ,f i :<: ( SayF      i :+:
                     PlayF     i :+:
                     GatherF   i :+:
                     SmsF      i :+:
@@ -638,7 +640,8 @@ newtype MessagingVerbsF i a = MessagingVerbsF
       EndF      i ) a -- Shared between Voice and Messaging TwiML
   } deriving (Functor, Generic, Show, Typeable)
 
-instance (f i :<: ( MessageF  i :+:
+instance (Functor (f i)
+         ,f i :<: ( MessageF  i :+:
                     RedirectF i :+:
                     SmsF      i :+:
                     EndF      i )
