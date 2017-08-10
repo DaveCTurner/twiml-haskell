@@ -46,15 +46,15 @@ library
   hs-source-dirs:      src
   -- other-modules:       
   build-depends:       base ==4.*,
-                       data-default ==0.5.*,
-                       deepseq ==1.4.*,
-                       lens ==4.*,
-                       network-uri >=2.6,
-                       parsec ==3.*,
-                       text ==1.*,
-                       template-haskell ==2.*,
-                       void ==0.*,
-                       xml >=1.3
+                       data-default,
+                       deepseq,
+                       lens,
+                       network-uri,
+                       parsec,
+                       text,
+                       template-haskell,
+                       void,
+                       xml
   ghc-options:         -Wall -fno-warn-unused-do-bind
 
 test-suite Golden
@@ -62,10 +62,10 @@ test-suite Golden
   type:                detailed-0.9
   test-module:         Golden
   build-depends:       base ==4.*,
-                       Cabal >=1.16.0,
-                       data-default ==0.5.*,
-                       Diff ==0.3.2,
-                       lens ==4.*,
+                       Cabal,
+                       data-default,
+                       Diff,
+                       lens,
                        twiml
   ghc-options:         -Wall -fno-warn-unused-do-bind -fno-warn-name-shadowing
 
@@ -74,12 +74,12 @@ test-suite ShouldNotTypecheck
   type:                detailed-0.9
   test-module:         ShouldNotTypecheck
   build-depends:       base ==4.*,
-                       Cabal >=1.16.0,
-                       data-default ==0.5.*,
-                       deepseq ==1.4.*,
-                       HUnit ==1.2.*,
-                       lens ==4.*,
-                       should-not-typecheck ==2.0.*,
+                       Cabal,
+                       data-default,
+                       deepseq,
+                       HUnit,
+                       lens,
+                       should-not-typecheck,
                        twiml,
-                       void ==0.*
+                       void
   ghc-options:         -Wall -fno-warn-unused-do-bind -fno-warn-name-shadowing
