@@ -7,7 +7,8 @@ This package provides a library for constructing
 [TwiML](www.twilio.com/docs/api/twiml). Install using
 
 ```
-$ cabal install twiml
+$ make
+$ stack install
 ```
 
 Documentation soon to be available on Hackage. For now, see [markandrus.github.io/twiml-haskell](http://markandrus.github.io/twiml-haskell).
