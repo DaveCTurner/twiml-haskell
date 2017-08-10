@@ -168,11 +168,14 @@ specToToXML spec@(TwimlSpec{..}) = UInfixE (AppE (AppE (AppE (VarE $ mkName "mak
     else ListE []
 
 specToStrictTypes :: TwimlSpec -> [StrictType]
-specToStrictTypes spec@(TwimlSpec{..}) = go parameters ++ [(NotStrict, VarT $ mkName "a") | recursive] where
+specToStrictTypes spec@(TwimlSpec{..}) = go parameters ++ [(notStrict, VarT $ mkName "a") | recursive] where
   go [] = []
   go (Required   as :bs) = map stringToStrictType as ++ go bs
-  go (Attributes _  :bs) = (NotStrict, ConT $ specToAttributesName spec) : go bs
-  stringToStrictType a = (NotStrict, ConT $ mkName a)
+  go (Attributes _  :bs) = (notStrict, ConT $ specToAttributesName spec) : go bs
+  stringToStrictType a = (notStrict, ConT $ mkName a)
+
+  notStrict :: Bang
+  notStrict = Bang NoSourceUnpackedness NoSourceStrictness
 
 gadtToDefExp :: TwimlSpec -> [Parameters] -> Exp
 gadtToDefExp spec@(TwimlSpec{..}) = go (ConE $ specToGADTName spec) . foldr ((+) . count) (if recursive then 1 else 0) where
